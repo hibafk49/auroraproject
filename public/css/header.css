@@ -1,0 +1,89 @@
+.navbar-brand img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar-nav {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-nav .nav-link {
+    color: #0c0c0c;
+}
+.navbar-toggler-icon {
+    background-color: #0c0c0c;
+}
+.navbar-toggler {
+outline: none;
+background-color: black !important;
+border: 1px solid transparent;
+padding: 0.25rem 0.75rem;
+font-size: 1.25rem;
+line-height: 1;
+border-radius: 0.25rem;
+}
+
+
+.navbar-toggler i {
+font-size: 1.5rem; /* Adjust the icon size as needed */
+color: #f9f8f8; /* Adjust the icon color as needed */
+}
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav  li {
+    position: relative;
+}
+
+.navbar-nav  li  a {
+    text-decoration: none;
+    color: #080808;
+    padding: 10px 15px;
+    display: inline-block;
+} 
+.navbar-nav  li:hover .submenu {
+    display: block; 
+}
+
+.submenu li {
+    white-space: nowrap; 
+}
+
+.submenu li a {
+    text-decoration: none;
+    color: #333; 
+    padding: 10px;
+    display: block;
+}
+
+
+#icon1 {
+    margin-right: 0%;
+}
+#icon2 {
+    
+    margin-right: 0%;
+}
+#promo{
+
+    color: #ff0000; 
+
+}    
+#text-light-blue {
+background-color: #ADD8E6; 
+}
+#text-baby-pink {
+background-color: #FFC0CB; 
+}
+
