@@ -1,9 +1,9 @@
 .navbar-brand img {
     display: block;
-    max-width: 100%;
-    height: auto;
 }
-
+.navbar-brand{
+    width: 100px;
+}
 .navbar-nav {
     background-color: white;
     display: flex;

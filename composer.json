@@ -9,6 +9,7 @@
         "backpack/crud": "^6.7",
         "google/apiclient": "^2.15",
         "guzzlehttp/guzzle": "^7.2",
+        "jeroennoten/laravel-adminlte": "^3.11",
         "laravel/cashier": "^15.3",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",

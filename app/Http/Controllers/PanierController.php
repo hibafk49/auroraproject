@@ -9,7 +9,7 @@ use Session;
 class PanierController extends Controller
 {public function __construct()
     {
-        $this->middleware('auth'); // Appliquer le middleware 'auth' à toutes les méthodes du contrôleur
+        $this->middleware('auth'); 
     }
     public function index()
 {
@@ -38,7 +38,6 @@ public function addToCart(Request $request, $id)
 
     if (array_key_exists($id, $cart)) {
         $cart[$id]['quantity'] += $quantity;
-        // Mettre à jour l'ID de la couleur si nécessaire
         $cart[$id]['couleur_id'] = $couleurId;
     } else {
         $cart[$id] = [
@@ -95,4 +94,32 @@ public function updateCartItem(Request $request, $id)
 
         return redirect()->route('cart.index')->with('success', 'Cart cleared successfully!');
     }
+    public function updateQuantity(Request $request, $id)
+{
+    $cart = session()->get('cart', []);
+
+    if(isset($cart[$id])) {
+        if($request->action == 'increase') {
+            $cart[$id]['quantity']++;
+        } elseif($request->action == 'decrease' && $cart[$id]['quantity'] > 1) {
+            $cart[$id]['quantity']--;
+        }
+
+        session()->put('cart', $cart);
+
+        $newQuantity = $cart[$id]['quantity'];
+        $newPrice = $cart[$id]['quantity'] * $cart[$id]['product']->prix;
+        $total = array_sum(array_map(function($item) {
+            return $item['quantity'] * $item['product']->prix;
+        }, $cart));
+
+        return response()->json([
+            'newQuantity' => $newQuantity,
+            'newPrice' => number_format($newPrice, 2),
+            'newTotal' => number_format($total, 2)
+        ]);
+    }
+
+    return response()->json(['error' => 'Produit non trouvé dans le panier'], 404);
+}
 }

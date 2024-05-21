@@ -25,6 +25,7 @@ Route::post('/add-to-cart/{produit}', [PanierController::class, 'addToCart'])->n
 Route::get('/cart', [PanierController::class, 'index'])->name('cart.index');
 Route::post('/cart/add/{id}', [PanierController::class, 'addToCart'])->name('cart.add');
 Route::post('/cart/update/{id}', [PanierController::class, 'updateCartItem'])->name('cart.update');
+Route::post('/cart/update-quantity/{id}', [PanierController::class, 'updateQuantity']);
 Route::post('/cart/remove/{id}', [PanierController::class, 'removeCartItem'])->name('cart.remove');
 Route::post('/cart/clear', [PanierController::class, 'clearCart'])->name('cart.clear');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -43,4 +44,8 @@ Route::get('/confirmation-success', function () {
     return view('confirmation.success');}) 
 ->name('confirmation.success');
 Route::get('/payment/{commandeId}', [PaymentController::class, 'showPaymentPage'])->name('payment');
+// Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process.payment');
 Route::post('/process-payment', [PaymentController::class, 'processPayment'])->name('process.payment');
+Route::get('/confirmation-success', function () {
+    return view('confirmation.success');
+})->name('confirmation.success');

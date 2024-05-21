@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg ">
         <a class="navbar-brand" href="{{route('welcome')}}">
-            <img src="{{ asset('logo1.png') }}" alt="Aurora" width="120">
+            <img src="{{ asset('file.png') }}" alt="Aurora" width="90%">
         </a>
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

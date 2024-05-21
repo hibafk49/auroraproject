@@ -21,8 +21,10 @@ class Commande extends Model
      */
     public function utilisateur()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class , 'utilisateur_id');
     }
+// Dans votre modèle Commande
+
 
     /**
      * Relation avec les détails de commande.

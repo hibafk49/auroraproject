@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('commande_id')->constrained()->onDelete('cascade'); // Clé étrangère vers la commande associée
-            $table->decimal('montant_total', 10, 2); // Montant total de la facture
-            $table->enum('statut', ['payee', 'en_attente', 'annulee'])->default('en_attente'); // Statut de la facture
-            $table->date('date_emission'); // Date d'émission de la facture
-            $table->date('date_paiement')->nullable(); // Date de paiement de la facture
-            $table->timestamps(); // Champs pour la création et la mise à jour automatiques
+            $table->foreignId('commande_id')->constrained('commandes')->onDelete('cascade'); 
+            $table->decimal('montant_total', 10, 2); 
+            $table->enum('statut', ['payee', 'en_attente', 'annulee'])->default('en_attente'); 
+            $table->date('date_emission'); 
+            $table->date('date_paiement')->nullable(); 
+            $table->timestamps(); 
         });
     }
 

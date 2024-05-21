@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('utilisateur_id')->constrained('users')->onDelete('cascade'); // ID de l'utilisateur/client associé à la commande
-            $table->decimal('total', 10, 2); // Utilisation du type decimal pour stocker les montants avec 10 chiffres au total et 2 décimales
+            $table->decimal('total', 10, 2); 
             $table->string('nom_client');
             $table->string('telephone_client')->nullable();
             $table->string('ville')->nullable(); // Ajout de la colonne pour la ville

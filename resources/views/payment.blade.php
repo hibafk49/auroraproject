@@ -19,7 +19,7 @@
         paypal.Buttons({
             createOrder: function(data, actions) {
                 var totalAmount = {{ $total }};
-
+    
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
@@ -30,32 +30,37 @@
                 });
             },
             onApprove: function(data, actions) {
-    return actions.order.capture().then(function(details) {
-        fetch("{{ route('process.payment') }}", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
-            body: JSON.stringify({
-                orderID: data.orderID,
-                payerID: data.payerID
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Une erreur s\'est produite lors du traitement du paiement.');
+                return actions.order.capture().then(function(details) {
+                    return fetch("{{ route('process.payment') }}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            orderID: {{ $commande->id }}, 
+                            payerID: details.payer.payer_id
+                        })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Une erreur s\'est produite lors du traitement du paiement.');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = "{{ route('confirmation.success') }}";
+                        } else {
+                            throw new Error('Erreur lors du traitement du paiement.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors du traitement du paiement :', error);
+                        alert('Une erreur s\'est produite lors du traitement du paiement.');
+                    });
+                });
             }
-            window.location.href = "{{ route('confirmation.success') }}";
-        })
-        .catch(error => {
-            console.error('Erreur lors du traitement du paiement :', error);
-            window.location.href = "{{ route('confirmation.success') }}";
-        });
-    });
-}
-
-            }
-        ).render('#paypal-button-container');
+        }).render('#paypal-button-container');
     </script>
 @endsection

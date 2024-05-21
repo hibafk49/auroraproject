@@ -17,6 +17,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    @vite('resources/css/app.css')
+
 </head>
 <body>
     <div class="loader-container" id="loader">
@@ -30,7 +32,7 @@
      </div>
       </div>
       
-      <div class="container" id="id">
+      <div  id="id">
         <div class="horizontal-scrolling-items">
         
         <div class="horizontal-scrolling-items__item">
