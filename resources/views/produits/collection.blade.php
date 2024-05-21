@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('showcollection')
-<!-- produits.collection.blade.php -->
-
 <h1>{{ $collectionName }}</h1>
-
 <ul class="list-group">
     @foreach($produits as $produit)
         <li class="list-group-item">
@@ -21,5 +18,4 @@
         </li>
     @endforeach
 </ul>
-
 @endsection

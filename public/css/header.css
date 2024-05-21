@@ -34,8 +34,8 @@ border-radius: 0.25rem;
 
 
 .navbar-toggler i {
-font-size: 1.5rem; /* Adjust the icon size as needed */
-color: #f9f8f8; /* Adjust the icon color as needed */
+font-size: 1.5rem; 
+color: #f9f8f8;
 }
 .navbar-nav {
     display: flex;

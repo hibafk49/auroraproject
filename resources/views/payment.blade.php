@@ -23,15 +23,14 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: totalAmount.toFixed(2), // Formater le montant avec deux décimales
-                            currency_code: 'USD' // Devise du montant
+                            value: totalAmount.toFixed(2), 
+                            currency_code: 'USD' 
                         }
                     }]
                 });
             },
             onApprove: function(data, actions) {
     return actions.order.capture().then(function(details) {
-        // Envoyer une requête AJAX pour traiter le paiement côté serveur
         fetch("{{ route('process.payment') }}", {
             method: 'POST',
             headers: {

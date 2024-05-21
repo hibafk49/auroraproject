@@ -69,6 +69,8 @@ window.addEventListener("load", function() {
         @yield('showcollection')
         @yield('promo')
         @yield('commande')
+        @yield('showallcollection')
+
     @include('partials.footer')
   
    

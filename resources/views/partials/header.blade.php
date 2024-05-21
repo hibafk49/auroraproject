@@ -19,7 +19,7 @@
                         Collection
                     </a>
                     <ul class="submenu dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a id="text-light-blue" class="dropdown-item" href="{{ route('collection.produits', ['collection' => 'all']) }}">Tous les produits</a></li>
+                        <li><a id="text-light-blue" class="dropdown-item" href="{{ route('collection.produits', ['collection' => 'Tous les collections']) }}">Tous les collections</a></li>
         <li><a class="dropdown-item" href="{{ route('collection.produits', ['collection' => '1']) }}">Bliss Collection</a></li>
         <li><a class="dropdown-item" href="{{ route('collection.produits', ['collection' => '2']) }}">Serenity Collection</a></li>
         <li><a class="dropdown-item" href="{{ route('collection.produits', ['collection' => '3']) }}">Elegance Collection</a></li>
@@ -39,7 +39,7 @@
                     <a class="nav-link" href="#">Visitez-nous</a>
                 </li>
                 <li class="nav-item">
-                    <a id="icon1" class="nav-link" href="#">
+                    <a id="icon1" class="nav-link" href="{{route('cart.index')}}">
     <i class="fas fa-shopping-cart"></i>
 </a>
 

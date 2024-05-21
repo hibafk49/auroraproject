@@ -62,7 +62,6 @@
 
 
 <style>
-    /* Overall styling */
 .card {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -72,7 +71,6 @@
   background-color: #fff;
 }
 
-/* Title section */
 .title {
   display: flex;
   justify-content: space-between;
@@ -87,7 +85,6 @@
   color: #333;
 }
 
-/* Cart items section */
 .cart .row {
   margin-bottom: 20px;
 }
@@ -119,7 +116,6 @@
   color: #555;
 }
 
-/* Summary section */
 .summary {
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -145,7 +141,7 @@
 }
 
 .summary .btn {
-  background-color: #ff6666; /* Light pink */
+  background-color: #ff6666;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -155,35 +151,31 @@
 }
 
 .summary .btn:hover {
-  background-color: #ff3333; /* Darker pink on hover */
+  background-color: #ff3333; 
 }
 
     </style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Lorsque le bouton d'augmentation de quantité est cliqué
         $('.increase-quantity').click(function() {
-            var productId = $(this).data('id'); // Récupérer l'ID du produit
-            updateQuantity(productId, 'increase'); // Appeler la fonction pour mettre à jour la quantité
+            var productId = $(this).data('id'); 
+            updateQuantity(productId, 'increase'); 
         });
 
-        // Lorsque le bouton de diminution de quantité est cliqué
         $('.decrease-quantity').click(function() {
-            var productId = $(this).data('id'); // Récupérer l'ID du produit
-            updateQuantity(productId, 'decrease'); // Appeler la fonction pour mettre à jour la quantité
+            var productId = $(this).data('id'); 
+            updateQuantity(productId, 'decrease'); 
         });
 
-        // Fonction pour mettre à jour la quantité via AJAX
         function updateQuantity(productId, action) {
             $.ajax({
-                type: 'POST', // Méthode de la requête AJAX
-                url: '/cart/update-quantity/' + productId, // URL de la route de mise à jour de la quantité
+                type: 'POST', 
+                url: '/cart/update-quantity/' + productId, 
                 data: {
-                    action: action // Action à effectuer (augmenter ou diminuer la quantité)
+                    action: action 
                 },
                 success: function(response) {
-                    // Mettre à jour la quantité affichée dans le panier
                     $('.quantity-display').text(response.quantity);
                 },
                 error: function(xhr, status, error) {
@@ -195,3 +187,8 @@
 </script>
 
 @endsection
+
+
+
+
+    

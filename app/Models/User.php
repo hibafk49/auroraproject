@@ -18,10 +18,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'nom', 'email', 'mdp', 'numero_telephone', 'adresse', 'role', 'google_id'
     ];
+    
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,7 +28,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'mdp',
         'remember_token',
     ];
 
@@ -42,7 +41,7 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            'mdp' => 'hashed',
         ];
     }
     public function commandes()

@@ -21,7 +21,7 @@ class Produit extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Categorie::class, 'categorie_produit');
+        return $this->belongsToMany(Categorie::class, 'collection_id');
     }
 
     public function couleurs()

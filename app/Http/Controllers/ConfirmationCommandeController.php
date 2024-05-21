@@ -13,7 +13,6 @@ class ConfirmationCommandeController extends Controller
    
     public function confirmationCommande()
     {
-        // Obtenez le panier de la session
         $cart = session()->get('cart', []);
     
         $total = 0;
@@ -39,13 +38,11 @@ class ConfirmationCommandeController extends Controller
     $cart = session()->get('cart', []);
     $total = 0;
 
-    // Vérifiez le contenu du panier
     if (empty($cart)) {
         return redirect()->back()->with('error', 'Votre panier est vide.');
     }
 
     foreach ($cart as $item) {
-        // Vérifiez les valeurs de prix et de quantité
         if (!isset($item['product']->prix) || !isset($item['quantity'])) {
             return redirect()->back()->with('error', 'Une erreur est survenue avec un produit dans votre panier.');
         }

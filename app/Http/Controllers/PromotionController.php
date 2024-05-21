@@ -10,6 +10,6 @@ class PromotionController extends Controller
 public function index()
 {
     $promotions = Promotion::all();
-    return view('promotions.index', ['promotions' => $promotions]);
+    return view('promotions.index', ['promotions' => $promotions]); 
 }
 }
